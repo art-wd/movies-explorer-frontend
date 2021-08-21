@@ -1,0 +1,47 @@
+.promo {
+  display: flex;
+  justify-content: center;
+  background: #073042;
+}
+
+.promo__logo {
+  padding: 82px 0 122px;
+}
+
+.promo__title {
+  position: absolute;
+  max-width: 730px;
+  text-align: center;
+  font-size: 50px;
+  line-height: 1.16;
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  padding: 184px 0 224px;
+  margin: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .promo__logo {
+    padding: 224px 0 240px;
+  }
+
+  .promo__title {
+    font-size: 6.51vw;
+    padding: calc(326px + (50px - 6.51vw)) 0 0;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .promo__logo {
+    width: 248px;
+    height: 248px;
+    padding: 142px 0 180px;
+  }
+
+  .promo__title {
+    padding: 207px 0 246px;
+    font-size: 31px;
+    line-height: 1.26;
+    max-width: 300px;
+  }
+}
