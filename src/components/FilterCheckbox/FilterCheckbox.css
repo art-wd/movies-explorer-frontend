@@ -27,6 +27,7 @@
   width: 1px;
   height: 1px;
   overflow: hidden;
+  outline: none;
   clip: rect(0 0 0 0);
 }
 
@@ -61,6 +62,10 @@
 .filter__checkbox:checked + .filter__slider:before {
   background-color: #fff;
   transform: translateX(200%);
+}
+
+.filter__checkbox:focus + .filter__slider {
+  outline: auto;
 }
 
 @media screen and (max-width: 1024px) {
