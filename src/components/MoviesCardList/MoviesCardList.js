@@ -2,7 +2,7 @@ import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard';
 
-function MoviesCardList({ cards }) {
+function MoviesCardList({ cards, isSavedPath }) {
   const isHidden = cards.length < 4;
 
   return (
@@ -12,6 +12,7 @@ function MoviesCardList({ cards }) {
           <MoviesCard
             key={i}
             card={ card }
+            isSavedPath={isSavedPath}
           />))}
       </ul>
 

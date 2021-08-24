@@ -19,7 +19,7 @@
 }
 
 .filter__switch:hover {
-  box-shadow: 0 0 4px #3ddc84;
+  box-shadow: 0 0 10px #3ddc84;
 }
 
 .filter__checkbox {

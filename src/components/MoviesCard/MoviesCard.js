@@ -1,7 +1,7 @@
 import React from 'react';
 import './MoviesCard.css';
 
-function MoviesCard({ card }) {
+function MoviesCard({ card, isSavedPath }) {
   const [isLiked, setIsLiked] = React.useState(false);
 
   const handleLike = () => {
@@ -17,7 +17,17 @@ function MoviesCard({ card }) {
             <h2 className="card__title">{ card.name }</h2>
             <p className="card__subtitle">{ card.duration }</p>
           </div>
-          <button className={ `card__button${isLiked ? " card__button_active" : ""}` } type="button" aria-label="Нравится" onClick={ handleLike } />
+          <button
+            className={
+              `card__button
+              ${ isSavedPath ? " card__button_remove" : "" }
+              ${ !isSavedPath && isLiked ? " card__button_active" : ""}
+              `
+            }
+            type="button"
+            aria-label="Нравится"
+            onClick={ handleLike }
+          />
         </figcaption>
       </figure>
     </li>

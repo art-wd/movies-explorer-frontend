@@ -55,15 +55,21 @@
   background: transparent;
   padding: 0;
   transition: all .2s linear;
-  transition-property: opacity, box-shadow;
 }
 
 .card__button:hover {
-  opacity: .6;
   box-shadow: 0 0 10px #3ddc84;
 }
 
 .card__button_active {
-  border-radius: 50%;
   background: #2be080;
+}
+
+.card__button_remove {
+  border: none;
+  background: transparent url(../../images/card-remove-icon.svg) center no-repeat;
+}
+
+.card__button_remove:hover {
+  background: #2be080 url(../../images/card-remove-icon.svg) center no-repeat;
 }
