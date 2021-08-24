@@ -1,0 +1,37 @@
+.about-project {
+  padding: 110px max(70px, calc((100% - 1140px) / 2));
+}
+
+.about-project__articles {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+  padding: 70px 0 110px;
+}
+
+.about-project__progress-bars {
+  display: flex;
+}
+
+@media screen and (max-width: 1024px) {
+  .about-project {
+    padding: 90px 50px;
+  }
+
+  .about-project__articles {
+    padding: 70px 0 93px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .about-project__articles {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    gap: 56px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .about-project {
+    padding: 70px 14px;
+  }
+}

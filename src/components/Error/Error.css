@@ -1,0 +1,16 @@
+.error {
+  flex: 1 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 69px;
+}
+
+.error__message {
+  text-align: center;
+  color: #ee3465;
+  font-size: 10px;
+  line-height: 1.2;
+  font-weight: 400;
+  margin: 0;
+}

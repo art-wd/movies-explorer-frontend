@@ -1,0 +1,21 @@
+.header {
+  display: flex;
+  background: #073042;
+  padding: 18px max(70px, calc((100% - 1140px) / 2));
+}
+
+.header_logged {
+  background: #202020;
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    padding: 18px 30px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .header {
+    padding: 18px 14px;
+  }
+}
