@@ -6,8 +6,13 @@ function Input({
   name,
   type,
   isRequired,
+  pattern,
   minLength,
-  maxLength
+  maxLength,
+  value,
+  error,
+  errorMessage,
+  onChange,
 }) {
   return (
     <label className="input">
@@ -18,10 +23,13 @@ function Input({
         name={ name }
         aria-label={ label }
         required={ isRequired }
+        pattern={ pattern }
         minLength={ minLength }
         maxLength={ maxLength }
+        value={ value || '' }
+        onChange={ onChange }
       />
-      <span className="input__error">Здесь будет сообщение об ошибке валидации</span>
+      <span className="input__error">{ error ? errorMessage : '' }</span>
     </label>
   );
 }

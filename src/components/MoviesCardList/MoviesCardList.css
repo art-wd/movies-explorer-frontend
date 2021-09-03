@@ -26,12 +26,14 @@
   transition: opacity .2s linear;
 }
 
-.cards__button:hover {
-  opacity: .6;
-}
-
 .cards__button_hidden {
   display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .cards__button:hover {
+    opacity: .6;
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -39,22 +41,3 @@
     gap: 36px 30px;
   }
 }
-
-/* @media screen and (max-width: 1024px) {
-  .cards__list {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 36px 30px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .cards__list {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media screen and (max-width: 425px) {
-  .cards__list {
-    grid-template-columns: 1fr;
-  }
-} */

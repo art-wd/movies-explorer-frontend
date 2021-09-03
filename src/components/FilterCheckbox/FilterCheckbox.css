@@ -18,10 +18,6 @@
   transition: box-shadow .2s linear;
 }
 
-.filter__switch:hover {
-  box-shadow: 0 0 10px #3ddc84;
-}
-
 .filter__checkbox {
   position: absolute;
   width: 1px;
@@ -64,8 +60,14 @@
   transform: translateX(200%);
 }
 
-.filter__checkbox:focus + .filter__slider {
+.filter__checkbox:focus-visible + .filter__slider {
   outline: auto;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .filter__switch:hover {
+    box-shadow: 0 0 10px #3ddc84;
+  }
 }
 
 @media screen and (max-width: 1024px) {
