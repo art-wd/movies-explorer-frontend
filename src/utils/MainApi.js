@@ -135,8 +135,6 @@ class MainApi {
   }
 }
 
-// const mainApi = new MainApi('https://api.chagin.movies.nomoredomains.club');
-const mainApi = new MainApi('http://localhost:5000');
+const mainApi = new MainApi('https://api.chagin.movies.nomoredomains.club');
 
 export default mainApi;
-
