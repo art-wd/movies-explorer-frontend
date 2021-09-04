@@ -71,7 +71,7 @@ function Profile({ handleUpdateUser, handleLogout, message }) {
           </span>
         </label>
 
-        <Message text={ message.text } isError={ message.isError } />
+        <Message message={ message } />
 
         <button className={`profile__submit${ !isValid ? " profile__submit_disabled" : "" }`} type="submit" disabled={ !isValid }>Редактировать</button>
 

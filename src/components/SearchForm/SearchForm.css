@@ -48,6 +48,11 @@
   transition: box-shadow .2s linear;
 }
 
+.search__submit_disabled {
+  cursor: default;
+  opacity: .6;
+}
+
 .search__error {
   position: absolute;
   left: 22px;
@@ -59,12 +64,12 @@
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .search__submit:hover {
+  .search__submit:not(.search__submit_disabled):hover {
     box-shadow: 0 0 10px #4285f4;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .search {
     padding: 60px 0 56px;
   }

@@ -17,7 +17,7 @@ class MainApi {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email, password })
+      body: JSON.stringify({ name, email, password }),
     });
 
     return this._handleResponse(res);
@@ -30,7 +30,7 @@ class MainApi {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     });
 
     return this._handleResponse(res);
@@ -67,7 +67,68 @@ class MainApi {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name, email }),
+    });
+
+    return this._handleResponse(res);
+  }
+
+  async getSavedMovies() {
+    const res = await fetch(`${this._baseURL}/movies`, {
+      credentials: 'include',
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      }
+    });
+
+    return this._handleResponse(res);
+  }
+
+  async saveMovie({
+    country,
+    director,
+    duration,
+    year,
+    description,
+    image,
+    trailer,
+    nameRU,
+    nameEN,
+    thumbnail,
+    movieId,
+    }) {
+    const res = await fetch(`${this._baseURL}/movies`, {
+      credentials: 'include',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        country,
+        director,
+        duration,
+        year,
+        description,
+        image,
+        trailer,
+        nameRU,
+        nameEN,
+        thumbnail,
+        movieId,
+      }),
+    });
+
+    return this._handleResponse(res);
+  }
+
+  async deleteMovie(movieId) {
+    const res = await fetch(`${this._baseURL}/movies/${movieId}`, {
+      credentials: 'include',
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      }
     });
 
     return this._handleResponse(res);
@@ -75,6 +136,7 @@ class MainApi {
 }
 
 // const mainApi = new MainApi('https://api.chagin.movies.nomoredomains.club');
-const mainApi = new MainApi('http://localhost:3001');
+const mainApi = new MainApi('http://localhost:5000');
 
 export default mainApi;
+

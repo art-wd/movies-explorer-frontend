@@ -44,7 +44,7 @@
   opacity: .6;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .page-not-found {
     padding: 222px 0;
   }

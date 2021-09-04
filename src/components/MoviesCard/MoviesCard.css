@@ -9,13 +9,21 @@
 .card__figure {
   display: flex;
   flex-direction: column;
+  width: 100%;
   margin: 0;
+}
+
+.card__trailer-link {
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .card__image {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform .2s linear;
 }
 
 .card__caption {
@@ -66,12 +74,16 @@
   background: transparent url(../../images/card-remove-icon.svg) center no-repeat;
 }
 
-.card__button_remove:hover {
-  background: #2be080 url(../../images/card-remove-icon.svg) center no-repeat;
-}
-
 @media (hover: hover) and (pointer: fine) {
   .card__button:hover {
     box-shadow: 0 0 10px #3ddc84;
+  }
+
+  .card__button_remove:hover {
+    background: #2be080 url(../../images/card-remove-icon.svg) center no-repeat;
+  }
+
+  .card__image:hover {
+    transform: scale(1.1);
   }
 }

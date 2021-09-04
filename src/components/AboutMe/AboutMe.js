@@ -13,7 +13,7 @@ function AboutMe() {
         <div className="about-me__container">
           <h3 className="about-me__title">Артём</h3>
           <p className="about-me__subtitle">Фронтенд-разработчик</p>
-          <p className="about-me__paragraph">Вырос и живу в Волгограде. Люблю слушать музыку и прогулки на свежем воздухе. С 2020 года работаю в образовательной поддержке. Примерно в это же время начал кодить.</p>
+          <p className="about-me__paragraph">С 2020 года работаю в образовательной поддержке. Примерно в это же время начал изучать веб-разработку.</p>
           <ul className="about-me__list">
             <li className="about-me__item">
               <Link className="about-me__link" to={{ pathname: "https://t.me/artchgn" }} target="_blank">Telegram</Link>

@@ -69,7 +69,7 @@ function Register({ handleRegister, message }) {
           />)
         )}
 
-        <Message text={ message.text } />
+        <Message message={ message } />
 
         <Button
           buttonTitle="Зарегистрироваться"
