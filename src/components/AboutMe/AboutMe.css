@@ -73,7 +73,7 @@
   border-radius: 10px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .about-me {
     padding: 90px 50px 80px;
   }
@@ -98,9 +98,7 @@
     font-size: 12px;
     line-height: 1.5;
   }
-}
 
-@media screen and (max-width: 768px) {
   .about-me__container {
     max-width: 364px;
   }

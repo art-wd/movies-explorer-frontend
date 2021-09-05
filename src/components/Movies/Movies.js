@@ -2,20 +2,35 @@ import React from 'react';
 import './Movies.css';
 import SearchForm from '../SearchForm/SearchForm';
 import MoviesCardList from '../MoviesCardList/MoviesCardList';
-import filmImg from '../../images/film-img.jpg'
+import Preloader from '../Preloader/Preloader';
 
-function Movies() {
-  const card = {
-    img: filmImg,
-    name: "Фильм",
-    duration: "1ч42м",
-  }
-  const cards = [...Array(16).keys()].map(i => card)
+function Movies({
+  onSubmit,
+  onCheck,
+  isShort,
+  moviesList,
+  savedMovies,
+  message,
+  isLoading,
+  onLike,
+  onDelete,
+}) {
 
   return (
     <main className="movies">
-      <SearchForm />
-      <MoviesCardList cards={ cards } />
+      <SearchForm onSubmit={ onSubmit } onCheck={ onCheck } isShort={ isShort } />
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <MoviesCardList
+          cards={ moviesList }
+          savedMovies={ savedMovies }
+          message={  message }
+          onLike={ onLike }
+          onDelete={ onDelete }
+          isMovies={ true }
+        />
+      )}
     </main>
   );
 }

@@ -13,7 +13,7 @@
   display: flex;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .about-project {
     padding: 90px 50px;
   }

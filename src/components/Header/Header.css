@@ -8,7 +8,7 @@
   background: #202020;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .header {
     padding: 18px 30px;
   }
