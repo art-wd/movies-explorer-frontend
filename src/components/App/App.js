@@ -42,59 +42,19 @@ function App() {
     isError: false,
   });
 
-  React.useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        setIsLoading(true);
-        const data = await mainApi.getUser();
-        setIsLoggedIn(true);
-        setCurrentUser(data);
-      } catch (err) {
-        setIsLoggedIn(false);
-        console.log(err.message);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchUserData();
-  }, [isLoggedIn]);
-
-  React.useEffect(() => {
-    const fetchSavedMovies = async () => {
-      try {
-        const data = await mainApi.getSavedMovies();
-        setSavedMovies(data);
-      } catch (err) {
-        console.log(err.message);
-      }
-    };
-
-    if (isLoggedIn) fetchSavedMovies();
-  }, [isLoggedIn]);
-
-  React.useEffect(() => {
-    if (location.path !== '/') {
-      setMessage({
-        text: '',
-        isError: false,
-      });
+  const fetchUserData = async () => {
+    try {
+      setIsLoading(true);
+      const data = await mainApi.getUser();
+      setIsLoggedIn(true);
+      setCurrentUser(data);
+    } catch (err) {
+      setIsLoggedIn(false);
+      console.log(err.message);
+    } finally {
+      setIsLoading(false);
     }
-  }, [location]);
-
-  React.useEffect(() => {
-    const data = JSON.parse(localStorage.getItem('queryMovies'));
-    const query = JSON.parse(localStorage.getItem('query'));
-    if (data && query) {
-      setFilteredMovies(moviesFilter(data, query, isShortMovies));
-      localStorage.setItem('isShortMovies', JSON.stringify(isShortMovies));
-    }
-  }, [isShortMovies]);
-
-  React.useEffect(() => {
-    setSavedMoviesFiltered(moviesFilter(savedMovies, savedMoviesSearchQuery, isShortSavedMovies))
-
-  }, [isShortSavedMovies, savedMovies, savedMoviesSearchQuery]);
+  };
 
   const handleRegister = async ({ name, email, password }) => {
     try {
@@ -111,7 +71,7 @@ function App() {
   const handleLogin = async ({ email, password }) => {
     try {
       await mainApi.login(email, password);
-      setIsLoggedIn(true);
+      fetchUserData();
       history.push('/movies');
     } catch(err) {
       setMessage({
@@ -250,6 +210,46 @@ function App() {
       console.log(err);
     }
   };
+
+  React.useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  React.useEffect(() => {
+    const fetchSavedMovies = async () => {
+      try {
+        const data = await mainApi.getSavedMovies();
+        setSavedMovies(data);
+      } catch (err) {
+        console.log(err.message);
+      }
+    };
+
+    if (isLoggedIn) fetchSavedMovies();
+  }, [isLoggedIn]);
+
+  React.useEffect(() => {
+    if (location.path !== '/') {
+      setMessage({
+        text: '',
+        isError: false,
+      });
+    }
+  }, [location]);
+
+  React.useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('queryMovies'));
+    const query = JSON.parse(localStorage.getItem('query'));
+    if (data && query) {
+      setFilteredMovies(moviesFilter(data, query, isShortMovies));
+      localStorage.setItem('isShortMovies', JSON.stringify(isShortMovies));
+    }
+  }, [isShortMovies]);
+
+  React.useEffect(() => {
+    setSavedMoviesFiltered(moviesFilter(savedMovies, savedMoviesSearchQuery, isShortSavedMovies))
+
+  }, [isShortSavedMovies, savedMovies, savedMoviesSearchQuery]);
 
   return (
     <CurrentUserContext.Provider value={ currentUser }>
